@@ -15,7 +15,7 @@
  *
  * > View on GitHub: https://tsch.js.org/268
  */
-type If<C, T, F> = C extends true ? T : F
+type If<C extends boolean, T, F> = C extends true ? T : F
 
 
 // -------------------------- Test Cases --------------------------
@@ -28,7 +28,5 @@ type cases = [
     Expect<Equal<If<boolean, 'a', 2>, 'a' | 2>>,
 ]
 
-/**
- * @ts-expect-error
- */
+// @ts-expect-error
 type error = If<null, 'a', 'b'>
