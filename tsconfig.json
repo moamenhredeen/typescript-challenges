@@ -1,11 +1,28 @@
 {
   "compilerOptions": {
-    "target": "ESNEXT",
-    "module": "ESNEXT",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+
+    "target": "es2025",
+    "module": "nodenext",
+
+		"rootDir": "./src",
+		"noEmit": true,
+
+		// strictest
     "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-		"rootDir": "./src"
+    "esModuleInterop": true,
+
+    "isolatedModules": true,
+
+    "checkJs": true,
+
+    "lib": [
+      "es2024",
+      "ESNext.Array",
+      "ESNext.Collection",
+      "ESNext.Iterator",
+      "ESNext.Promise"
+		]
   }
 }
