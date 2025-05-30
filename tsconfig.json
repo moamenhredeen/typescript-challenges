@@ -1,28 +1,15 @@
 {
   "compilerOptions": {
-
     "target": "es2025",
     "module": "nodenext",
+    "rootDir": "./src",
+    "noEmit": true,
 
-		"rootDir": "./src",
-		"noEmit": true,
-
-		// strictest
+    // strictest
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-
     "isolatedModules": true,
-
-    "checkJs": true,
-
-    "lib": [
-      "es2024",
-      "ESNext.Array",
-      "ESNext.Collection",
-      "ESNext.Iterator",
-      "ESNext.Promise"
-		]
   }
 }
