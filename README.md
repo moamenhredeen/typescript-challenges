@@ -10,3 +10,5 @@ my solution to the [type-challenges](https://github.com/type-challenges/type-cha
 - [Length of Tuple](./src/length-of-tuple.ts)
 - [Exclude](./src/exclude.ts)
 - [Awaited](./src/awaited.ts)
+- [If](./src/If.ts)
+- [Concat](./src/concat.ts)
