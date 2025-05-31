@@ -22,7 +22,6 @@ import type { Equal, Expect } from './utils'
 
 
 const tuple = [1] as const
-type test = Concat<[1, 2], [3]>
 
 type cases = [
     Expect<Equal<Concat<[], []>, []>>,
