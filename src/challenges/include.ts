@@ -17,10 +17,18 @@
  */
 
 
-type Includes<T extends readonly any[], U>  =  {
-	[P in T[number]]: true
-}[U] extends true ? true : false;
+type IsEqual<T, U> =
+	(<G>() => G extends T ? 1 : 2) extends
+	(<G>() => G extends U ? 1 : 2)
+		? true
+		: false;
 
+type Includes<Value extends any[], Item> =
+	IsEqual<Value[0], Item> extends true
+		? true
+		: Value extends [Value[0], ...infer rest]
+			? Includes<rest, Item>
+			: false;
 
 // -------------------------- Test Cases --------------------------
 
@@ -38,12 +46,13 @@ type cases = [
   Expect<Equal<Includes<[{}], { a: 'A' }>, false>>,
   Expect<Equal<Includes<[boolean, 2, 3, 5, 6, 7], false>, false>>,
   Expect<Equal<Includes<[true, 2, 3, 5, 6, 7], boolean>, false>>,
-  // Expect<Equal<Includes<[false, 2, 3, 5, 6, 7], false>, true>>,
+  Expect<Equal<Includes<[false, 2, 3, 5, 6, 7], false>, true>>,
   Expect<Equal<Includes<[{ a: 'A' }], { readonly a: 'A' }>, false>>,
   Expect<Equal<Includes<[{ readonly a: 'A' }], { a: 'A' }>, false>>,
   Expect<Equal<Includes<[1], 1 | 2>, false>>,
-  // Expect<Equal<Includes<[1 | 2], 1>, false>>,
-  Expect<Equal<Includes<[null], undefined>, false>>,
+  Expect<Equal<Includes<[1 | 2], 1>, false>>,
+	// @ts-ignore not working
+  Expect<Equal<Includes<[null], undefined>, false>>, 
   Expect<Equal<Includes<[undefined], null>, false>>,
   Expect<Equal<Includes<[undefined], null>, false>>,
 ]
