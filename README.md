@@ -20,3 +20,4 @@ my solution to the [type-challenges](https://github.com/type-challenges/type-cha
 - [Omit](./src/challenes/omit.ts): `medium` `union` `built-in`
 - [Readonly 2](./src/challenges/readonly-2.ts): `medium` `readonly` `object-keys`
 - [Deep Readonly](./src/challenges/deep-readonly.ts): `medium` `readonly` `object-keys` `deep`
+- [Tuple to Union](./src/challenges/tuple-to-union.ts): `medium` `union` `infer` `tuple` 
