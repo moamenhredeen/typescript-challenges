@@ -37,16 +37,25 @@
  * > View on GitHub: https://tsch.js.org/12
  */
 
+type Chainable<R = object> = {
 
-type Chainable<T> = {
-  option<K extends string, V>(key: K, value: V): {
-		[p in K]: V
-	}  
-	get(): {
-	}
+	// 1. key must be of type string
+  option<K extends string, V>(
+		// keys should not be repeated
+		key: K extends keyof R ?  never : K,
+		// capture value type
+		value: V
+	): Chainable< 
+		// remove existing keys with the same name from return type
+		{[p in keyof R as p extends K ? never : p]: R[p]}
+		& 
+		// add the key of type K to the return type
+		{ [p in K]: V }
+	> 
+
+	get(): R
 }
 
-const x = a.option('age', 1).get()
 
 // -------------------------- Test Cases --------------------------
 
