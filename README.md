@@ -23,3 +23,4 @@ my solution to the [type-challenges](https://github.com/type-challenges/type-cha
 - [Tuple to Union](./src/challenges/tuple-to-union.ts): `medium` `union` `infer` `tuple` 
 - [Chainable Options](./src/challenges/chainable-options.ts): `medium` `application`
 - [Last of Array](./src/challenges/last-of-array.ts): `medium` `array`
+- [Pop](./src/challenges/pop.ts)
